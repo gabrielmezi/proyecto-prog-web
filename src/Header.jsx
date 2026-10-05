@@ -8,16 +8,13 @@ const NAV_ITEMS = [
 export default function Header() {
   return (
     <header className="w-full bg-white border-b border-[#D6DEE5]">
-      <div className="max-w-[1530px] mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div className="max-w-382.5 mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
         
         {/* Branding (Logo + Título) */}
         <div className="flex items-center space-x-3">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUHVtF5JCSUNJBcYVQoN-T9L_H2ueM8X-4CVk7MvHZSw&s=10"
-            alt="Logo Mesa de Ayuda Ulima"
-            className="w-8 h-8 rounded-lg object-cover"
-            loading="eager"
-          />
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-[#1F4E79] rounded-[4px] flex-shrink-0" />
+        </div>
           <div className="flex items-center space-x-1 text-base">
             <span className="font-bold text-gray-900">Mesa de ayuda</span>
             <span className="text-[#5F6C78]" aria-hidden="true">·</span>
@@ -42,7 +39,6 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Botones de Acción */}
         <div className="flex items-center space-x-4">
           <button
             id="iniciar-sesion"
