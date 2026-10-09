@@ -1,4 +1,6 @@
+import { Link } from 'react-router'
 import { useState } from 'react'
+import { useSearchParams } from 'react-router'
 
 import Campo from '../components/Campo'
 import Mensaje from '../components/Mensaje'
@@ -6,7 +8,8 @@ import Mensaje from '../components/Mensaje'
 import { claveSegura } from '../datos/validaciones'
 
 export default function Invitacion({ registrar }) {
-  const supervisor = window.location.hash.includes('rol=supervisor')
+  const [searchParams] = useSearchParams()
+  const supervisor = searchParams.get('rol') === 'supervisor'
   const rol = supervisor ? 'Supervisor' : 'Técnico'
 
   const [telefono, setTelefono] = useState('951 220 874')
@@ -103,7 +106,7 @@ export default function Invitacion({ registrar }) {
         {resultado ? (
           <>
             <Mensaje>{resultado}</Mensaje>
-            <a href="#/login" className="boton">Volver al acceso</a>
+            <Link to="/login" className="boton">Volver al acceso</Link>
           </>
         ) : (
           <>

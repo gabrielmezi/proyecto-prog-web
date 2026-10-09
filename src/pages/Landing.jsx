@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 export default function Landing() {
   return (
     <main className="max-w-[1200px] w-full mx-auto px-6 py-8 flex-1">
@@ -15,8 +16,8 @@ export default function Landing() {
             a un técnico el mismo día.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
-            <a href="#/login" className="boton">Registrar un ticket</a>
-            <a href="#/#como-reportar" className="boton-secundario">Ver cómo reportar</a>
+            <Link to="/login" className="boton">Registrar un ticket</Link>
+            <Link to="/#como-reportar" className="boton-secundario">Ver cómo reportar</Link>
           </div>
 
         </div>

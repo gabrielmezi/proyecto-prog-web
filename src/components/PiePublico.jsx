@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 export default function PiePublico() {
   return (
     <footer className="bg-[#163A5A] text-white px-6 py-8">
@@ -13,24 +14,24 @@ export default function PiePublico() {
 
         <div className="text-xs space-y-2">
           <p className="text-[#BDCEDD] tracking-wider">REPORTAR</p>
-          <a className="block" href="#/login">Registrar un ticket</a>
-          <a className="block" href="#/login">Seguir un ticket</a>
-          <a className="block" href="#/#categorias">Categorías de servicio</a>
+          <Link className="block" to="/login">Registrar un ticket</Link>
+          <Link className="block" to="/login">Seguir un ticket</Link>
+          <Link className="block" to="/#categorias">Categorías de servicio</Link>
         </div>
 
         <div className="text-xs space-y-2">
           <p className="text-[#BDCEDD] tracking-wider">AYUDA</p>
-          <a className="block" href="#/#como-reportar">Preguntas frecuentes</a>
-          <a className="block" href="#/#tiempos">Tiempos de atención esperados</a>
+          <Link className="block" to="/#como-reportar">Preguntas frecuentes</Link>
+          <Link className="block" to="/#tiempos">Tiempos de atención esperados</Link>
           <p>Emergencias eléctricas · anexo 30111</p>
         </div>
 
       </div>
       <div className="max-w-[1200px] mx-auto text-right text-xs text-[#BDCEDD] mt-8">
         <p>© 2026 Universidad de Lima</p>
-        <a href="#/terminos">Términos</a>{' '}
+        <Link to="/terminos">Términos</Link>{' '}
         ·{' '}
-        <a href="#/privacidad">Privacidad</a>
+        <Link to="/privacidad">Privacidad</Link>
       </div>
 
     </footer>

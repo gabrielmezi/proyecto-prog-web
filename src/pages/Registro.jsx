@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { useState } from 'react'
 
 import Campo from '../components/Campo'
@@ -94,7 +95,7 @@ export default function Registro({ registrar, existeCorreo }) {
         <div className="tarjeta max-w-[500px]">
           <h1 className="titulo mb-4">Tu cuenta está lista</h1>
           <Mensaje>Cuenta creada correctamente. Ya puedes iniciar sesión.</Mensaje>
-          <a href="#/login" className="boton">Iniciar sesión</a>
+          <Link to="/login" className="boton">Iniciar sesión</Link>
         </div>
 
       </main>
@@ -220,7 +221,7 @@ export default function Registro({ registrar, existeCorreo }) {
         )}
         <div className="flex gap-2 mt-5">
           <button className="boton">Crear cuenta</button>
-          <a href="#/" className="boton-secundario">Cancelar</a>
+          <Link to="/" className="boton-secundario">Cancelar</Link>
         </div>
 
       </form>

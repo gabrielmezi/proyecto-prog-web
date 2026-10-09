@@ -1,9 +1,13 @@
+import { Link } from 'react-router'
+import { useNavigate } from 'react-router'
+
 export default function EstructuraUsuario({ usuario, salir, ruta, children }) {
+  const navigate = useNavigate()
   const iniciales = usuario.nombres[0] + usuario.apellidos[0]
 
   function buscarTicket(e) {
     e.preventDefault()
-    window.location.hash = '/404'
+    navigate('/404')
   }
 
   return (
@@ -11,10 +15,10 @@ export default function EstructuraUsuario({ usuario, salir, ruta, children }) {
       <header
         className="bg-[#1F4E79] text-white flex flex-wrap items-center gap-5 px-5 py-3 min-h-[60px]"
       >
-        <a href="#/mi-cuenta" className="flex items-center gap-2 font-semibold">
+        <Link to="/mi-cuenta" className="flex items-center gap-2 font-semibold">
           <span className="w-5 h-5 bg-white rounded"></span>
           Mesa de Ayuda
-        </a>
+        </Link>
         <form className="flex-1 max-w-[440px]" onSubmit={buscarTicket}>
           <input
             className="w-full rounded border border-white/30 bg-white/15 px-3 py-2 text-xs placeholder:text-white/80"
@@ -44,29 +48,29 @@ export default function EstructuraUsuario({ usuario, salir, ruta, children }) {
         >
           <p className="etiqueta px-2 mb-3">Mis servicios</p>
           <nav className="space-y-1 text-sm">
-            <a href="#/mi-cuenta" className="block px-2 py-2">Inicio</a>
-            <a href="#/nuevo-ticket" className="block px-2 py-2">Nuevo ticket</a>
-            <a href="#/mis-tickets" className="flex justify-between px-2 py-2">
+            <Link to="/mi-cuenta" className="block px-2 py-2">Inicio</Link>
+            <Link to="/nuevo-ticket" className="block px-2 py-2">Nuevo ticket</Link>
+            <Link to="/mis-tickets" className="flex justify-between px-2 py-2">
               Mis tickets{' '}
               <span className="ayuda">0</span>
-            </a>
-            <a href="#/encuestas" className="flex justify-between px-2 py-2">
+            </Link>
+            <Link to="/encuestas" className="flex justify-between px-2 py-2">
               Encuesta pendiente{' '}
               <span className="ayuda">0</span>
-            </a>
-            <a href="#/mis-encuestas" className="flex justify-between px-2 py-2">
+            </Link>
+            <Link to="/mis-encuestas" className="flex justify-between px-2 py-2">
               Mis encuestas{' '}
               <span className="ayuda">0</span>
-            </a>
-            <a
-              href="#/mi-cuenta"
+            </Link>
+            <Link
+              to="/mi-cuenta"
               className={'block px-2 py-2 rounded ' + (ruta === '/mi-cuenta' ? 'bg-[#E7EFF6] text-[#1F4E79] border-l-2 border-[#1F4E79]' : '')}
             >
               Mi cuenta
-            </a>
+            </Link>
           </nav>
           <div className="mt-auto border-t border-[#D6DEE5] pt-4 text-xs space-y-3">
-            <a href="#/mi-cuenta" className="block">Mi cuenta</a>
+            <Link to="/mi-cuenta" className="block">Mi cuenta</Link>
             <button onClick={salir}>Cerrar sesión</button>
           </div>
 
@@ -79,9 +83,9 @@ export default function EstructuraUsuario({ usuario, salir, ruta, children }) {
             <p>Mesa de Ayuda de Servicios del Campus · Universidad de Lima</p>
             <p>
               soporte.campus@ulima.edu.pe · anexo 30500 ·{' '}
-              <a href="#/terminos">Términos</a>{' '}
+              <Link to="/terminos">Términos</Link>{' '}
               ·{' '}
-              <a href="#/privacidad">Privacidad</a>
+              <Link to="/privacidad">Privacidad</Link>
             </p>
           </footer>
         </div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { useEffect, useState } from 'react'
 
 import Campo from '../components/Campo'
@@ -107,7 +108,7 @@ export default function Recuperar({ restablecer }) {
             />
             <div className="flex gap-4 mt-6">
               <button className="boton">Enviar enlace</button>
-              <a href="#/login" className="enlace self-center">Volver a iniciar sesión</a>
+              <Link to="/login" className="enlace self-center">Volver a iniciar sesión</Link>
             </div>
 
           </form>
@@ -142,7 +143,7 @@ export default function Recuperar({ restablecer }) {
           <>
             <h1 className="titulo mb-4">Contraseña actualizada</h1>
             <Mensaje>Ya puedes ingresar con tu nueva contraseña.</Mensaje>
-            <a className="boton" href="#/login">Iniciar sesión</a>
+            <Link className="boton" to="/login">Iniciar sesión</Link>
           </>
         )}
 

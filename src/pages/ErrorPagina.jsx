@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 export default function ErrorPagina({ codigo = 404 }) {
   const denegado = codigo === 403
 
@@ -16,12 +17,12 @@ export default function ErrorPagina({ codigo = 404 }) {
           {denegado ? 'Tu cuenta tiene el rol de usuario. La cola, la asignación y el catálogo de servicios son exclusivos del supervisor. Si necesitas ese acceso, solicítalo a Infraestructura y Servicios.' : 'El enlace puede haber cambiado. Si buscabas un ticket, ingresa su código en el buscador de la cabecera.'}
         </p>
         <div className="flex justify-center flex-wrap gap-2 mt-5">
-          <a className="boton" href={denegado ? '#/mis-tickets' : '#/'}>
+          <Link className="boton" to={denegado ? '/mis-tickets' : '/'}>
             {denegado ? 'Ir a mis tickets' : 'Ir al inicio'}
-          </a>
+          </Link>
           <a
             className="boton-secundario"
-            href={denegado ? 'mailto:soporte.campus@ulima.edu.pe?subject=Solicitud%20de%20acceso' : '#/login'}
+            href={denegado ? 'mailto:soporte.campus@ulima.edu.pe?subject=Solicitud%20de%20acceso' : '/login'}
           >
             {denegado ? 'Solicitar acceso' : 'Buscar un ticket'}
           </a>

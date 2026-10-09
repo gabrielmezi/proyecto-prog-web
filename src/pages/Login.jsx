@@ -1,9 +1,12 @@
+import { Link } from 'react-router'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import Campo from '../components/Campo'
 import Mensaje from '../components/Mensaje'
 
 export default function Login({ ingresar }) {
+  const navigate = useNavigate()
   const [correo, setCorreo] = useState(localStorage.getItem('correoRecordado') || '')
   const [clave, setClave] = useState('')
   const [mostrar, setMostrar] = useState(false)
@@ -50,7 +53,7 @@ export default function Login({ ingresar }) {
       } else {
         localStorage.removeItem('correoRecordado')
       }
-      window.location.hash = '/mi-cuenta'
+      navigate('/mi-cuenta')
     } else {
       const total = intentos + 1
       setIntentos(total)
@@ -79,7 +82,7 @@ export default function Login({ ingresar }) {
               Cuenta bloqueada por 15 minutos tras cinco intentos fallidos. Podrás ingresar a las{' '}
               {horaDesbloqueo}{' '}
               o{' '}
-              <a className="underline" href="#/recuperar">restablecer tu contraseña ahora</a>.
+              <Link className="underline" to="/recuperar">restablecer tu contraseña ahora</Link>.
             </Mensaje>
           )}
           <fieldset disabled={cargando || bloqueado} className="space-y-5">
@@ -129,7 +132,7 @@ export default function Login({ ingresar }) {
               {cargando ? (
                 <span>¿Olvidaste tu contraseña?</span>
               ) : (
-                <a className="enlace" href="#/recuperar">¿Olvidaste tu contraseña?</a>
+                <Link className="enlace" to="/recuperar">¿Olvidaste tu contraseña?</Link>
               )}
             </div>
 
@@ -141,7 +144,7 @@ export default function Login({ ingresar }) {
           <p className="text-center ayuda mt-5">
             ¿No tienes cuenta?{' '}
             {cargando ? 'Regístrate' : (
-              <a href="#/registro" className="enlace">Regístrate</a>
+              <Link to="/registro" className="enlace">Regístrate</Link>
             )}
           </p>
         </form>
@@ -155,7 +158,7 @@ export default function Login({ ingresar }) {
           <p className="text-sm bg-[#E7EFF6] border-l-4 border-[#1F4E79] p-4 mt-4 text-[#1F4E79]">
             Tras cinco intentos fallidos la cuenta se bloquea por 15 minutos.
           </p>
-          <a className="enlace inline-block mt-4" href="#/invitacion">Tengo una invitación</a>
+          <Link className="enlace inline-block mt-4" to="/invitacion">Tengo una invitación</Link>
         </aside>
       </div>
 
